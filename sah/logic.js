@@ -598,6 +598,14 @@ document.querySelectorAll('.box').forEach(item => {
             selectedKing = null;
         }
 
+        // Prevent king from moving to g1 directly
+        if (item.innerText == 'Wking' && item.id == 'b107') {
+            item.style.backgroundColor = 'rgb(125 135 150)';
+        }
+        if (item.innerText == 'Bking' && item.id == 'b807') {
+            item.style.backgroundColor = 'rgb(125 135 150)';
+        }
+
     })
 })
 
