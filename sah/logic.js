@@ -94,6 +94,8 @@ let hasMoved = {
     Brook2: false
 };
 
+let selectedKing = null;
+
 document.querySelectorAll('.box').forEach(item => {
 
 
@@ -538,7 +540,63 @@ document.querySelectorAll('.box').forEach(item => {
 
         reddish()
 
+        if (item.innerText.includes('king')) {
+            selectedKing = item;
+        } else if (selectedKing && item.innerText.includes('rook')) {
+            let kingId = selectedKing.id;
+            let rookId = item.id;
 
+            // White castling
+            if (selectedKing.innerText == 'Wking' && !hasMoved.Wking) {
+                if (rookId == 'b101' && !hasMoved.Wrook1 && document.getElementById('b102').innerText == '' && document.getElementById('b103').innerText == '' && document.getElementById('b104').innerText == '') {
+                    document.getElementById('b105').innerText = '';
+                    document.getElementById('b101').innerText = '';
+                    document.getElementById('b103').innerText = 'Wking';
+                    document.getElementById('b104').innerText = 'Wrook';
+                    hasMoved.Wking = true;
+                    hasMoved.Wrook1 = true;
+                    tog = tog + 1; // Toggle turn
+                }
+                if (rookId == 'b108' && !hasMoved.Wrook2 && document.getElementById('b106').innerText == '' && document.getElementById('b107').innerText == '') {
+                    document.getElementById('b105').innerText = '';
+                    document.getElementById('b108').innerText = '';
+                    document.getElementById('b107').innerText = 'Wking';
+                    document.getElementById('b106').innerText = 'Wrook';
+                    hasMoved.Wking = true;
+                    hasMoved.Wrook2 = true;
+                    tog = tog + 1; // Toggle turn
+                }
+            }
+
+            // Black castling
+            if (selectedKing.innerText == 'Bking' && !hasMoved.Bking) {
+                if (rookId == 'b801' && !hasMoved.Brook1 && document.getElementById('b802').innerText == '' && document.getElementById('b803').innerText == '' && document.getElementById('b804').innerText == '') {
+                    document.getElementById('b805').innerText = '';
+                    document.getElementById('b801').innerText = '';
+                    document.getElementById('b803').innerText = 'Bking';
+                    document.getElementById('b804').innerText = 'Brook';
+                    hasMoved.Bking = true;
+                    hasMoved.Brook1 = true;
+                    tog = tog + 1; // Toggle turn
+                }
+                if (rookId == 'b808' && !hasMoved.Brook2 && document.getElementById('b806').innerText == '' && document.getElementById('b807').innerText == '') {
+                    document.getElementById('b805').innerText = '';
+                    document.getElementById('b808').innerText = '';
+                    document.getElementById('b807').innerText = 'Bking';
+                    document.getElementById('b806').innerText = 'Brook';
+                    hasMoved.Bking = true;
+                    hasMoved.Brook2 = true;
+                    tog = tog + 1; // Toggle turn
+                }
+            }
+
+            selectedKing = null;
+            coloring();
+            insertImage();
+            document.getElementById('tog').innerText = tog % 2 !== 0 ? "White's Turn" : "Black's Turn"; // Update turn display
+        } else {
+            selectedKing = null;
+        }
 
     })
 })
