@@ -28,11 +28,10 @@ function coloring() {
         aup = eval(arr.shift())
         a = aside + aup
 
-        if (a % 2 == 0) {
-            color.style.backgroundColor = 'rgb(232 235 239)'
-        }
-        if (a % 2 !== 0) {
-            color.style.backgroundColor = 'rgb(125 135 150)'
+        if ((aside + aup) % 2 == 0) {
+            color.style.backgroundColor = 'rgb(125 135 150)' // black
+        } else {
+            color.style.backgroundColor = 'rgb(232 235 239)' // white
         }
     })
 }
