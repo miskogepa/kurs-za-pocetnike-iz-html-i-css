@@ -1,0 +1,37 @@
+Zadatak: Forma za prijavu za trku Formule 1
+Kreiraj web stranicu koja sadrži formu za prijavu na trku Formule 1. 
+
+Stranica treba da ima sledeće elemente:
+
+1. Uvodni deo stranice:
+a) Prikaži kratak opis o trci
+b) Napiši tekst u kojem će pisati na kojoj stazi i kada se održava trka.
+c) Dodaj fotografiju automobila Formule 1 
+
+2. Forma za prijavu:
+Napraviti formu sa sledećim elementima:
+
+Podaci o učesniku:
+
+Polja za unos:
+Ime 
+Prezime 
+Email adresa 
+Godine učesnika:
+Koristi radio dugmiće za izbor godina:
+ucesnice koji mogu da ucestvuju su od 18 do 21. za svaku godinu posebno napisi da korisnik moze da izabere
+Adresa stanovanja:
+Koristi <textarea> za unos adrese.
+
+3. Izbor tima:
+Koristi radio dugmiće za izbor tima:
+Mercedes,
+Ferrari,
+Red Bull.
+
+4. Submit dugme:
+Dodaj dugme za slanje prijave sa tekstom: "Prijavi se".
+Dodatne smernice:
+Forma treba da bude lepo organizovana, sa odgovarajućim naslovima i tekstom.
+Polja treba da imaju odgovarajuće placeholder tekstove ili label oznake.
+

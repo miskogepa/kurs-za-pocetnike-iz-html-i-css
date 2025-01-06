@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Forme</title>
+</head>
+<body>
+    <h1>Forme</h1>
+    <!--tag za formu je <form> -->
+        <form>
+            <label for="Username">Unesite korisnicko ime:</label>  <!--oznacava input i dodatno ga opisuje sta treba da se u njega unese -->
+            <input type="text" id="Username" name="Username"> <!--type atribut oznacava tip inputa, id atribut je obavezan i koristi se za selektovanje inputa pomocu javascripta, name atribut se koristi za slanje podataka na server -->
+            <br><br> <!--dodaje razmak izmedju dva inputa -->
+            <label for="email">Unesite email:</label>
+            <input type="email" id="email" name="email">
+            <br><br>
+            <label for="password"> Unesite password:</label>
+            <input type="password" id="password" name="password"> <br><br>
+            <hr> <!--dodaje horizontalnu liniju -->
+
+            <p>Izaberte pol</p>
+            <!-- ovo su radio buttoni -->
+            <input type="radio" name="gender"  value="female"> Muski <br> <!-- name atribut je obavezan za radio button da nije njega ne bi mogli da selektujemo samo jedan radio button -->
+            <input type="radio" name="gender" value="male"> Zenski <br> <!-- da nema name atributa mogli bi da selektujemo vise radio buttona i svaki se zove isto da bi znali da se radi o istoj grupi -->
+            <input type="radio" name="gender"  value="other"> Neodredjeno <br>
+            <br>
+
+            <label for="question">Izaberite pitanje</label>
+           
+            <select name="question" id="question"> 
+                <option value="1">Koja je vasa omiljena boja?</option>
+                <option value="2">Koje je vase omiljeno jelo?</option>
+                <option value="3">Koje je vase omiljeno pice?</option>
+            </select>
+            <br><br>
+
+            <label for="answer">Odgovor:</label>
+            <input type="text" id="answer" name="answer">
+            <br><br>
+            <hr>
+            <label for="bio">Tvoja biografija: </label>
+            <textarea  id="bio" name="bio" placeholder="Unesite svoju biografiju" name="bio"></textarea>
+            <br><br>
+            <input type="submit" value="Posalji"> <!--submit dugme salje podatke na server -->
+
+        </form>
+    
+</body>
+</html>

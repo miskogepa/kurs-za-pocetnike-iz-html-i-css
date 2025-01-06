@@ -1,0 +1,7 @@
+napraviti stranicu o nekoj poznatoj licnosti, koristeci elemente koje smo do sada naucili.
+paragraf
+heding
+ol
+ul
+link ka stranici wikipedija na kojoj ce da pise nesto vise o toj licnosti
+slika te licnosti
