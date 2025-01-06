@@ -85,6 +85,15 @@ document.getElementById("reset-btn").addEventListener("click", function () {
 
 tog = 1
 
+let hasMoved = {
+    Wking: false,
+    Bking: false,
+    Wrook1: false,
+    Wrook2: false,
+    Brook1: false,
+    Brook2: false
+};
+
 document.querySelectorAll('.box').forEach(item => {
 
 
@@ -101,8 +110,35 @@ document.querySelectorAll('.box').forEach(item => {
                     blueId = i.id
                     blueText = i.innerText
 
+                    // Update hasMoved for king and rooks
+                    if (blueText == 'Wking') hasMoved.Wking = true;
+                    if (blueText == 'Bking') hasMoved.Bking = true;
+                    if (blueText == 'Wrook' && blueId == 'b101') hasMoved.Wrook1 = true;
+                    if (blueText == 'Wrook' && blueId == 'b108') hasMoved.Wrook2 = true;
+                    if (blueText == 'Brook' && blueId == 'b801') hasMoved.Brook1 = true;
+                    if (blueText == 'Brook' && blueId == 'b808') hasMoved.Brook2 = true;
+
                     document.getElementById(blueId).innerText = ''
                     item.innerText = blueText
+
+                    // Move rook during castling
+                    if (blueText == 'Wking' && item.id == 'b103') {
+                        document.getElementById('b101').innerText = '';
+                        document.getElementById('b104').innerText = 'Wrook';
+                    }
+                    if (blueText == 'Wking' && item.id == 'b107') {
+                        document.getElementById('b108').innerText = '';
+                        document.getElementById('b106').innerText = 'Wrook';
+                    }
+                    if (blueText == 'Bking' && item.id == 'b803') {
+                        document.getElementById('b801').innerText = '';
+                        document.getElementById('b804').innerText = 'Brook';
+                    }
+                    if (blueText == 'Bking' && item.id == 'b807') {
+                        document.getElementById('b808').innerText = '';
+                        document.getElementById('b806').innerText = 'Brook';
+                    }
+
                     coloring()
                     insertImage()
                     tog = tog + 1
@@ -222,6 +258,24 @@ document.querySelectorAll('.box').forEach(item => {
                 if (aup < 800 && aside > 1) {
 
                     document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'greenyellow'
+                }
+
+                // Castling logic
+                if (toggle == 'W' && !hasMoved.Wking) {
+                    if (!hasMoved.Wrook1 && document.getElementById('b102').innerText == '' && document.getElementById('b103').innerText == '' && document.getElementById('b104').innerText == '') {
+                        document.getElementById('b103').style.backgroundColor = 'greenyellow';
+                    }
+                    if (!hasMoved.Wrook2 && document.getElementById('b106').innerText == '' && document.getElementById('b107').innerText == '') {
+                        document.getElementById('b107').style.backgroundColor = 'greenyellow';
+                    }
+                }
+                if (toggle == 'B' && !hasMoved.Bking) {
+                    if (!hasMoved.Brook1 && document.getElementById('b802').innerText == '' && document.getElementById('b803').innerText == '' && document.getElementById('b804').innerText == '') {
+                        document.getElementById('b803').style.backgroundColor = 'greenyellow';
+                    }
+                    if (!hasMoved.Brook2 && document.getElementById('b806').innerText == '' && document.getElementById('b807').innerText == '') {
+                        document.getElementById('b807').style.backgroundColor = 'greenyellow';
+                    }
                 }
 
                 item.style.backgroundColor = 'blue'
